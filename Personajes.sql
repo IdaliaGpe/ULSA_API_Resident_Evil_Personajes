@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:8889
--- Tiempo de generación: 10-05-2023 a las 23:55:07
--- Versión del servidor: 5.7.39
--- Versión de PHP: 7.4.33
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 12-05-2023 a las 12:58:58
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,48 +18,51 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `Resident`
+-- Base de datos: `resident`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Personajes`
+-- Estructura de tabla para la tabla `personajes`
 --
 
-CREATE TABLE `Personajes` (
+CREATE TABLE `personajes` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `genero` varchar(255) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `genero` varchar(255) DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
-  `edad` varchar(50) NOT NULL,
-  `relacion` varchar(255) NOT NULL,
-  `especialidad` varchar(255) NOT NULL,
-  `estatura` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `imagen_2` varchar(255) DEFAULT NULL,
+  `edad` varchar(50) DEFAULT NULL,
+  `relacion` varchar(255) DEFAULT NULL,
+  `especialidad` varchar(255) DEFAULT NULL,
+  `estatura` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Volcado de datos para la tabla `Personajes`
+-- Volcado de datos para la tabla `personajes`
 --
 
-INSERT INTO `Personajes` (`id`, `nombre`, `genero`, `imagen`, `edad`, `relacion`, `especialidad`, `estatura`) VALUES
-(1, 'Chris Redfield', 'Masculino', '1', '50', 'Soltero', 'Ex-piloto de las fuerzas aéreas norteamericanas, batidor del equipo Alfa y entrenador de reclutas.', '185 cm'),
-(2, 'Claire Redfield', 'Femenino', '1', '44', 'Soltera', 'Estudiante Universitaria', '1,69 m'),
-(3, 'Leon Kennedy', 'Masculino', '1', '46', 'Soltero', 'Agente americano de la D.S.O.', '178 cm'),
-(4, 'Jill Valentine', 'Femenino', '1', '49', 'Soltera', 'Miembro del equipo Alpha de S.T.A.R.S.', '172 cm'),
-(5, 'Ada Wong', 'Femenino', '1', '49', 'Soltera', 'Agente espia estadounidense', '1,73 m'),
-(6, 'Albert Wesker', 'Masculino', '1', '63', 'Casado', 'Capitan de S.T.A.R.S', '190 cm'),
-(7, 'Ethan Winters', 'Masculino', '1', '39', 'Casado', 'Ingeniero', '180 cm'),
-(8, 'Carlos Oliveira', 'Masculino', '1', '46', 'Soltero', 'Soldado ex-miembro del U.B.C.S.', '1.82 cm');
+INSERT INTO `personajes` (`id`, `nombre`, `genero`, `imagen`, `imagen_2`, `edad`, `relacion`, `especialidad`, `estatura`, `created_at`, `updated_at`) VALUES
+(1, 'Chris Redfield', 'Masculino', 'QXn8183UNQ3V7s90dyTrSXR5GDz3bcLfnzrFAsON.webp', 'kFGZr9hffpb4Rr8P5Wi0c5cKTo2WVuzQ38OFBeH9.png', '50', 'Soltero', 'Ex-piloto de las fuerzas aéreas norteamericanas, batidor del equipo Alfa y entrenador de reclutas.', '185 cm', '2023-05-12 09:10:00', '2023-05-12 16:56:58'),
+(2, 'Claire Redfield', 'Femenino', 'drhXEj8xPlHyt7T8WM9u2Xbu3S8xYBNHn5Uban26.jpg', '5eTa3Jq1QKxA6tD8tQI5TP5L1tYxDm5CQ4K2LCPG.png', '44', 'Soltera', 'Estudiante Universitaria', '1,69 m', '2023-05-12 09:10:00', '2023-05-12 16:52:50'),
+(3, 'Leon Kennedy', 'Masculino', 'QrAkPjio3UgYSvSkkSiwmiK1JxVgkcjP0KYMc2PY.png', 'DzZE7WMRmHPZKxsbTnLRxGrLbAz7rhLkg32f0blh.webp', '46', 'Soltero', 'Agente americano de la D.S.O.', '178 cm', '2023-05-12 09:10:00', '2023-05-12 16:55:46'),
+(4, 'Jill Valentine', 'Femenino', 'Mq0wqEIuQzxR7NiUpgwcyHcIrrCHTr4IXbOYSfrP.jpg', '5rfsZ498FIoHXZbMee4Hpo2sg1aSSB2RfuHobeeS.png', '49', 'Soltera', 'Miembro del equipo Alpha de S.T.A.R.S.', '172 cm', '2023-05-12 09:10:00', '2023-05-12 16:57:45'),
+(5, 'Ada Wong', 'Femenino', 'lEyBLiHaPKVQYy9SPOiZhdn3OU2LSFW9qvZhL6Yr.webp', '4bI60ZOQv6zWWgHViHciWVEPtDpSV8Y2N4XUf4VZ.png', '49', 'Soltera', 'Agente espia estadounidense', '1,73 m', '2023-05-12 09:10:00', '2023-05-12 16:58:21'),
+(6, 'Albert Wesker', 'Masculino', 'rSIlBmWhRFN6OcPHjyy37e9dBepurMAv3JcXwaFH.webp', 'ir0cosZwhWfl28d3CEwYeYXsSS3hYKJSVmfWvAZm.webp', '63', 'Casado', 'Capitan de S.T.A.R.S', '190 cm', '2023-05-12 09:10:00', '2023-05-12 16:59:22'),
+(7, 'Ethan Winters', 'Masculino', 'k8ulCz2SB6EpAsoqUkg4XyEwwjwTq1PB3yVoiH3W.webp', 'A48xfLQrm4MGZD0JjpZ0J0INwVUWhEnmBpwi8gHA.webp', '39', 'Casado', 'Ingeniero', '180 cm', '2023-05-12 09:10:00', '2023-05-12 17:03:20'),
+(8, 'Carlos Oliveira', 'Masculino', '4d62z9djgVQnaCFu6heGeQySOMJPfo6JJzmG9kpo.jpg', '8gQvZqyfi3hSob6FyT3QuBY4REeZzwb56XNFzcWp.webp', '46', 'Soltero', 'Soldado ex-miembro del U.B.C.S.', '1.82 cm', '2023-05-12 09:10:00', '2023-05-12 17:04:15');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `Personajes`
+-- Indices de la tabla `personajes`
 --
-ALTER TABLE `Personajes`
+ALTER TABLE `personajes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -67,10 +70,10 @@ ALTER TABLE `Personajes`
 --
 
 --
--- AUTO_INCREMENT de la tabla `Personajes`
+-- AUTO_INCREMENT de la tabla `personajes`
 --
-ALTER TABLE `Personajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `personajes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
