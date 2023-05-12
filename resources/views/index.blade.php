@@ -59,8 +59,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Información</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Añadir</a>
+                    <a href="/index" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Información</a>
+                    <a href="/añadir" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Añadir</a>
                 </div>
             </nav>
         </div>
@@ -85,8 +85,6 @@
                             <span class="d-none d-lg-inline-flex">Idalia Padilla</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -129,11 +127,17 @@
                                     <td>{{$detalle->relacion}}</td>
                                     <td>{{$detalle->especialidad}}</td>
                                     <td>{{$detalle->estatura}}</td>
-                                    <td><img src="/storage/fotos/{{$detalle->imagen}}" class="card-img-top" alt=""></td>
-                                    <td><img src="/storage/fotos/{{$detalle->imagen}}" class="card-img-top" alt=""></td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Editar</a></td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Eliminar</a></td>
-                                </tr>
+                                    <td><img style="width: 100px; height: 10" src="/storage/fotos/{{$detalle->imagen}}" class="card-img-top" alt=""></td>
+                                    <td><img style="width: 100px; height: 10" src="/storage/fotos/{{$detalle->imagen_2}}" class="card-img-top" alt=""></td>
+                                    <td><a class="btn btn-sm btn-primary" href="{{route('personajes.edit', $detalle->id)}}">Editar</a></td>
+                                    <td>                                    
+                                        <form action="{{route('personajes.destroy', $detalle->id)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                                <button class="btn btn-sm btn-primary" href="" type="submit">Eliminar</button>
+                                        </form>
+                                    </td>
+                                    </tr>                                    
                                 @endforeach
                             </tbody>
                         </table>
@@ -159,10 +163,6 @@
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->

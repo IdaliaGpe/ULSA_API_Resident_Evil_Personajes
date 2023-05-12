@@ -59,8 +59,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Información</a>
-                    <a href="table.html" class="nav-item nav-link active"><i class="fa fa-table me-2 "></i>Añadir</a>
+                    <a href="/index" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Información</a>
+                    <a href="/añadir" class="nav-item nav-link active"><i class="fa fa-table me-2 "></i>Añadir</a>
                 </div>
             </nav>
         </div>
@@ -85,8 +85,6 @@
                             <span class="d-none d-lg-inline-flex">Idalia Padilla</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -96,56 +94,59 @@
 
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
-                    <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Añadir Personaje</h6>
-                        <form>
-                            <div class="row mb-3">
-                                <label for="" class="col-sm-2 col-form-label">Nombre</label>
-                                <div class="col-sm-10">
-                                    <input type="" class="form-control" id="inputEmail3">
+                    <form action="{{route('personajes.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Añadir Personaje</h6>
+                            <form>
+                                <div class="row mb-3">
+                                    <label for="" class="col-sm-2 col-form-label">Nombre</label>
+                                    <div class="col-sm-10">
+                                        <input name="nombre" type="text" class="form-control" >
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Genero</label>
-                                <div class="col-sm-3">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Genero</label>
+                                    <div class="col-sm-3">
+                                        <input name="genero" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Edad</label>
-                                <div class="col-sm-1">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Edad</label>
+                                    <div class="col-sm-1">
+                                        <input name="edad" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Estado Civil</label>
-                                <div class="col-sm-3">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Estado Civil</label>
+                                    <div class="col-sm-3">
+                                        <input name="relacion" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="" class="col-sm-2 col-form-label">Especialidad</label>
-                                <div class="col-sm-10">
-                                    <input type="" class="form-control" id="inputEmail3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Especialidad</label>
+                                    <div class="col-sm-10">
+                                        <input name="especialidad" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Estatura</label>
-                                <div class="col-sm-2">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Estatura</label>
+                                    <div class="col-sm-2">
+                                        <input name="estatura" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Imagen Rostro</label>
-                                <input class="form-control form-control-sm bg-dark" id="formFileSm" type="file">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Imagen Cuerpo Completo</label>
-                                <input class="form-control form-control-sm bg-dark" id="formFileSm" type="file">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Añadir</button>
-                        </form>
-                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Imagen Rostro</label>
+                                    <input name="imagen" class="form-control form-control-sm bg-dark" type="file">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Imagen Cuerpo Completo</label>
+                                    <input name="imagen_2" class="form-control form-control-sm bg-dark" type="file">
+                                </div>
+                                <button type="submit" class="btn btn-primary" type="submit">Añadir</button>
+                            </form>
+                        </div>
+                     </form>
                 </div>
             </div>
 

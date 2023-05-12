@@ -25,20 +25,14 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid position-relative d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
         <!-- Spinner End -->
 
 
@@ -59,8 +53,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Información</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2 "></i>Añadir</a>
+                    <a href="/index" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Información</a>
+                    <a href="/añadir" class="nav-item nav-link"><i class="fa fa-table me-2 "></i>Añadir</a>
                 </div>
             </nav>
         </div>
@@ -85,8 +79,6 @@
                             <span class="d-none d-lg-inline-flex">Idalia Padilla</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -96,56 +88,60 @@
 
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
-                    <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Editar Personaje</h6>
-                        <form>
-                            <div class="row mb-3">
-                                <label for="" class="col-sm-2 col-form-label">Nombre</label>
-                                <div class="col-sm-10">
-                                    <input type="" class="form-control" id="inputEmail3">
+                    <form action="{{route('personajes.update', $personajes->id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Editar Personaje</h6>
+                            <form>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Nombre</label>
+                                    <div class="col-sm-10">
+                                        <input value="{{$personajes->nombre}}" name="nombre" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Genero</label>
-                                <div class="col-sm-3">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Genero</label>
+                                    <div class="col-sm-3">
+                                        <input value="{{$personajes->genero}}" name="genero" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Edad</label>
-                                <div class="col-sm-1">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Edad</label>
+                                    <div class="col-sm-1">
+                                        <input value="{{$personajes->edad}}" name="edad" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Estado Civil</label>
-                                <div class="col-sm-3">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Estado Civil</label>
+                                    <div class="col-sm-3">
+                                        <input value="{{$personajes->relacion}}" name="relacion" type="" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="" class="col-sm-2 col-form-label">Especialidad</label>
-                                <div class="col-sm-10">
-                                    <input type="" class="form-control" id="inputEmail3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Especialidad</label>
+                                    <div class="col-sm-10">
+                                        <input value="{{$personajes->especialidad}}" name="especialidad" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Estatura</label>
-                                <div class="col-sm-2">
-                                    <input type="" class="form-control" id="inputPassword3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Estatura</label>
+                                    <div class="col-sm-2">
+                                        <input value="{{$personajes->estatura}}" name="estatura" type="text" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Imagen Rostro</label>
-                                <input class="form-control form-control-sm bg-dark" id="formFileSm" type="file">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Imagen Cuerpo Completo</label>
-                                <input class="form-control form-control-sm bg-dark" id="formFileSm" type="file">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Actualizar</button>
-                        </form>
-                    </div>
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Imagen Rostro</label>
+                                    <input class="form-control form-control-sm bg-dark" name="imagen" type="file">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Imagen Cuerpo Completo</label>
+                                    <input class="form-control form-control-sm bg-dark" name="imagen_2" type="file">
+                                </div>
+                                <button type="submit" class="btn btn-primary" type="submit">Actualizar</button>
+                            </form>
+                        </div>
+                    </form>
                 </div>
             </div>
 
