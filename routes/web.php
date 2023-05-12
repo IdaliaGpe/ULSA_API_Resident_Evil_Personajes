@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DetallesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', [DetallesController::class, 'index'])->name('detalles.index');
+Route::get('/añadir', [DetallesController::class, 'añadir'])->name('añadir.index');
+Route::get('/editar', [DetallesController::class, 'editar'])->name('editar.index');
